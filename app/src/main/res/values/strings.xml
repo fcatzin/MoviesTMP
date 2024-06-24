@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MoviesTMP</string>
     <string name="profile_image">IMG</string>
+    <string name="menu_home">Inicio</string>
+    <string name="menu_downloads">Descargas</string>
+    <string name="menu_search">Buscar</string>
+    <string name="menu_logout">Salir</string>
 </resources>

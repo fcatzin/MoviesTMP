@@ -21,9 +21,16 @@ public class UserRepository {
                     }
                 });
     }
-
+    public void logout(final LogoutCallback callback){
+        firebaseAuth.signOut();
+        callback.onSuccess();
+    }
     public interface LoginCallback {
         void onSuccess(FirebaseUser user);
+        void onFailure(Exception e);
+    }
+    public interface LogoutCallback {
+        void onSuccess();
         void onFailure(Exception e);
     }
 }

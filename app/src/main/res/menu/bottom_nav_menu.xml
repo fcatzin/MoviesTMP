@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/baseline_home_24"
+        android:title="@string/menu_home"/>
+    <item
+        android:id="@+id/navigation_downloads"
+        android:icon="@drawable/baseline_cloud_download_24"
+        android:title="@string/menu_downloads"/>
+    <item
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/baseline_search_24"
+        android:title="@string/menu_search"/>
+    <item
+        android:id="@+id/navigation_logout"
+        android:icon="@drawable/baseline_logout_24"
+        android:title="@string/menu_logout"/>
+</menu>
