@@ -10,6 +10,9 @@
     app:cardBackgroundColor="@color/white"
     tools:context=".view.MovieDetailActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,9 +45,8 @@
                 android:id="@+id/imageViewMovie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src=""
-                android:contentDescription="IMG"
-                android:scaleType="fitCenter" />
+                android:scaleType="fitCenter"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/textViewMovieName"
@@ -154,4 +156,5 @@
                 android:layout_marginTop="8dp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </com.google.android.material.card.MaterialCardView>

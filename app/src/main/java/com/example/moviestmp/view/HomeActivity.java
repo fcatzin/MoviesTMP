@@ -86,12 +86,12 @@ public class HomeActivity extends AppCompatActivity implements UserController.Vi
 
                     // Configurar RecyclerView para "Seguir viendo"
                     seguirViendoRecyclerView.setLayoutManager(new LinearLayoutManager(HomeActivity.this, LinearLayoutManager.HORIZONTAL, false));
-                    seguirViendoAdapter = new KeepWatchingAdapter(listSeguirViendo,true);
+                    seguirViendoAdapter = new KeepWatchingAdapter(listSeguirViendo,true,HomeActivity.this);
                     seguirViendoRecyclerView.setAdapter(seguirViendoAdapter);
 
                     // Configurar RecyclerView para "Más populares"
                     masPopularesRecyclerView.setLayoutManager(new LinearLayoutManager(HomeActivity.this, LinearLayoutManager.HORIZONTAL, false));
-                    masPopularesAdapter = new KeepWatchingAdapter(listPupulares,false);
+                    masPopularesAdapter = new KeepWatchingAdapter(listPupulares,false,HomeActivity.this);
                     masPopularesRecyclerView.setAdapter(masPopularesAdapter);
                 }
             }
@@ -121,5 +121,6 @@ public class HomeActivity extends AppCompatActivity implements UserController.Vi
         Intent intent = new Intent(this, MovieDetailActivity.class);
         intent.putExtra("MOVIE_ID", movieId);
         startActivity(intent);
+        //finish();
     }
 }

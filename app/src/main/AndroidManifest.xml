@@ -24,6 +24,7 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".view.ProfileSelectionActivity"/>
         <activity android:name=".view.HomeActivity"/>
+        <activity android:name=".view.MovieDetailActivity"/>
 
     </application>
 

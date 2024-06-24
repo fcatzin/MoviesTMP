@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moviestmp.R;
+import com.example.moviestmp.listener.OnMovieClickListener;
 import com.example.moviestmp.model.Movie;
 import com.squareup.picasso.Picasso;
 
@@ -17,10 +18,12 @@ import java.util.List;
 public class KeepWatchingAdapter extends RecyclerView.Adapter<KeepWatchingAdapter.MovieViewHolder>{
     private List<Movie> movies;
     private Boolean keepWatching;
+    private OnMovieClickListener listener;
 
-    public KeepWatchingAdapter(List<Movie> movies,Boolean keepWatching) {
+    public KeepWatchingAdapter(List<Movie> movies,Boolean keepWatching, OnMovieClickListener listener) {
         this.movies = movies;
         this.keepWatching=keepWatching;
+        this.listener=listener;
     }
 
     @NonNull
@@ -34,6 +37,10 @@ public class KeepWatchingAdapter extends RecyclerView.Adapter<KeepWatchingAdapte
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
         Movie movie = movies.get(position);
         Picasso.get().load("https://image.tmdb.org/t/p/w500/" + movie.getPosterPath()).into(holder.movieImage);
+        if(!keepWatching){
+            holder.itemView.setOnClickListener(item->listener.onMovieClick(movie.getId()));
+        }
+
     }
 
     @Override

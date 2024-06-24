@@ -1,6 +1,8 @@
 package com.example.moviestmp.view;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -61,6 +63,19 @@ public class MovieDetailActivity extends AppCompatActivity {
         Picasso.get().load("https://image.tmdb.org/t/p/w500/" + movieDetail.getPosterPath()).into(imageViewMovie);
 
         AlertDialog dialog = builder.create();
+
+        dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
+                    dialog.dismiss();
+                    finish();
+                    return true;
+                }
+                return false;
+            }
+        });
+
         dialog.show();
     }
 

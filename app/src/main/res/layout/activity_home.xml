@@ -2,19 +2,38 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Icono del perfil -->
-    <ImageView
-        android:id="@+id/profile_icon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="16dp"
-        android:src="@drawable/avatar0"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@string/profile_image"/>
+    <LinearLayout
+        android:id="@+id/seccion_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+        <!-- Icono del perfil -->
+        <ImageView
+            android:id="@+id/profile_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/avatar0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/profile_image"/>
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome admin"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:paddingStart="16dp"
+            tools:ignore="RtlSymmetry" />
+    </LinearLayout>
+
 
     <!-- Sección de géneros -->
     <HorizontalScrollView
@@ -23,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:scrollbars="none"
-        app:layout_constraintTop_toBottomOf="@id/profile_icon"
+        app:layout_constraintTop_toBottomOf="@id/seccion_profile"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -35,13 +54,13 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Todo"
+                android:text="All"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Películas"
+                android:text="Movies"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
             <com.google.android.material.button.MaterialButton
@@ -53,7 +72,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Deportes"
+                android:text="Sports"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
         </LinearLayout>
     </HorizontalScrollView>
@@ -87,7 +106,7 @@
                 android:id="@+id/seguir_viendo_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Seguir viendo"
+                android:text="Continue waching"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:layout_marginTop="16dp"
@@ -110,7 +129,7 @@
                 android:id="@+id/mas_populares_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Más populares"
+                android:text="Popular movies"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:layout_marginTop="16dp"
