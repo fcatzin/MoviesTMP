@@ -7,12 +7,13 @@
     android:layout_margin="16dp"
     app:cardCornerRadius="16dp"
     app:cardElevation="8dp"
-    app:cardBackgroundColor="@color/white"
+    android:padding="16dp"
     tools:context=".view.MovieDetailActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="16dp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +23,6 @@
             android:id="@+id/background_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/my_primary"
             android:alpha="0.9"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/textViewMovieDetails"
@@ -56,7 +56,7 @@
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-medium"
                 android:textSize="32sp"
-                android:textColor="@color/white" />
+                android:textColor="@color/my_secondary" />
         </LinearLayout>
 
         <LinearLayout
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:text="001"
                 android:textSize="20sp"
-                android:textColor="@color/black"
+                android:textColor="@color/my_secondary"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="8dp" />
 
@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:text="100"
                 android:textSize="16sp"
-                android:textColor="@color/black"
+                android:textColor="@color/my_secondary"
                 android:layout_marginTop="8dp" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -131,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:text="100"
                 android:textSize="16sp"
-                android:textColor="@color/black"
+                android:textColor="@color/my_secondary"
                 android:layout_marginTop="8dp" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -152,7 +152,7 @@
                 android:layout_height="wrap_content"
                 android:text="100"
                 android:textSize="16sp"
-                android:textColor="@color/black"
+                android:textColor="@color/my_secondary"
                 android:layout_marginTop="8dp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

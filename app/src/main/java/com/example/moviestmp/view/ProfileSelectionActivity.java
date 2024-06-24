@@ -41,6 +41,7 @@ public class ProfileSelectionActivity extends AppCompatActivity implements Profi
         Toast.makeText(this, "Selected profile: " + profile.getName(), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, HomeActivity.class);
         intent.putExtra("SELECTED_PROFILE",  profile.getAvatarResId());
+        intent.putExtra("SELECTED_PROFILE_NAME",  profile.getName());
         startActivity(intent);
         finish();
     }

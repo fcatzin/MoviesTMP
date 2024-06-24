@@ -2,17 +2,21 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/baseline_home_24"
-        android:title="@string/menu_home"/>
+        android:title="@string/menu_home"
+        android:textColor="@color/my_secondary"/>
     <item
         android:id="@+id/navigation_downloads"
         android:icon="@drawable/baseline_cloud_download_24"
-        android:title="@string/menu_downloads"/>
+        android:title="@string/menu_downloads"
+        android:textColor="@color/my_secondary"/>
     <item
         android:id="@+id/navigation_search"
         android:icon="@drawable/baseline_search_24"
-        android:title="@string/menu_search"/>
+        android:title="@string/menu_search"
+        android:textColor="@color/my_secondary"/>
     <item
         android:id="@+id/navigation_logout"
         android:icon="@drawable/baseline_logout_24"
-        android:title="@string/menu_logout"/>
+        android:title="@string/menu_logout"
+        android:textColor="@color/my_secondary"/>
 </menu>

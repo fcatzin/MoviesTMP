@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -42,6 +43,7 @@ public class HomeActivity extends AppCompatActivity implements UserController.Vi
     private ImageView avatarImageView;
     private UserController userController;
     ApiService apiService;
+    private TextView profileName;
     private final String BEARER_TOKEN="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMDgyMzkzNDQzODA3NWQ2M2YxZGJkYTQwMjNlNzZmYyIsInN1YiI6IjY1MDBmNzJkNTU0NWNhMDExYmE2N2RkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4QxbpZq9Tj3uzhA8uv2qLNcCA7NIcGBHDzoC4bWv9t8";
 
     @Override
@@ -60,8 +62,11 @@ public class HomeActivity extends AppCompatActivity implements UserController.Vi
         });
 
         int SELECTED_PROFILE=(int)getIntent().getSerializableExtra("SELECTED_PROFILE");
+        String SELECTED_PROFILE_NAME=(String)getIntent().getSerializableExtra("SELECTED_PROFILE_NAME");
         avatarImageView=findViewById(R.id.profile_icon);
         avatarImageView.setImageResource(SELECTED_PROFILE);
+        profileName=findViewById(R.id.profile_name);
+        profileName.setText(SELECTED_PROFILE_NAME);
         viewPager2 = findViewById(R.id.slider);
         seguirViendoRecyclerView = findViewById(R.id.seguir_viendo_recycler);
         masPopularesRecyclerView = findViewById(R.id.mas_populares_recycler);

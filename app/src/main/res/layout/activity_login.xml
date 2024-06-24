@@ -13,41 +13,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/my_primary"
-        android:alpha="0.2"
+        android:alpha="0.5"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/card_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="28dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/card_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="UseCompoundDrawables">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/iconologin"
-            android:background="@android:color/transparent"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MOVIES API"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="32sp"
-            android:textColor="@color/white"/>
-
-    </LinearLayout>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_view"
@@ -71,7 +43,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Welcome"
+                android:text="MOVIES API"
                 android:textColor="@color/my_primary"
                 android:textSize="32sp"
                 android:textStyle="bold"/>
