@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,7 +17,9 @@ import com.example.moviestmp.R;
 import com.example.moviestmp.controller.KeepWatchingAdapter;
 import com.example.moviestmp.controller.SliderAdapter;
 import com.example.moviestmp.controller.UserController;
+import com.example.moviestmp.listener.OnMovieClickListener;
 import com.example.moviestmp.model.Movie;
+import com.example.moviestmp.model.MovieDetail;
 import com.example.moviestmp.model.MovieResponse;
 import com.example.moviestmp.remote.ApiClient;
 import com.example.moviestmp.remote.ApiService;
@@ -27,7 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class HomeActivity extends AppCompatActivity implements UserController.ViewLogout {
+public class HomeActivity extends AppCompatActivity implements UserController.ViewLogout,OnMovieClickListener {
     private ViewPager2 viewPager2;
     private SliderAdapter sliderAdapter;
 
@@ -37,6 +41,7 @@ public class HomeActivity extends AppCompatActivity implements UserController.Vi
     private KeepWatchingAdapter masPopularesAdapter;
     private ImageView avatarImageView;
     private UserController userController;
+    ApiService apiService;
     private final String BEARER_TOKEN="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMDgyMzkzNDQzODA3NWQ2M2YxZGJkYTQwMjNlNzZmYyIsInN1YiI6IjY1MDBmNzJkNTU0NWNhMDExYmE2N2RkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4QxbpZq9Tj3uzhA8uv2qLNcCA7NIcGBHDzoC4bWv9t8";
 
     @Override
@@ -61,7 +66,7 @@ public class HomeActivity extends AppCompatActivity implements UserController.Vi
         seguirViendoRecyclerView = findViewById(R.id.seguir_viendo_recycler);
         masPopularesRecyclerView = findViewById(R.id.mas_populares_recycler);
 
-        ApiService apiService = ApiClient.getClient(BEARER_TOKEN).create(ApiService.class);
+        apiService = ApiClient.getClient(BEARER_TOKEN).create(ApiService.class);
         Call<MovieResponse> call = apiService.getNowPlayingMovies();
 
         call.enqueue(new Callback<MovieResponse>() {
@@ -76,7 +81,7 @@ public class HomeActivity extends AppCompatActivity implements UserController.Vi
                     List<Movie> listSeguirViendo = movies.subList(partitionSize + (remainder > 0 ? 1 : 0), 2 * partitionSize + (remainder > 1 ? 1 : 0));
                     List<Movie> listPupulares = movies.subList(2 * partitionSize + (remainder > 1 ? 1 : 0), movies.size());
 
-                    sliderAdapter = new SliderAdapter(listSlider);
+                    sliderAdapter = new SliderAdapter(listSlider,HomeActivity.this);
                     viewPager2.setAdapter(sliderAdapter);
 
                     // Configurar RecyclerView para "Seguir viendo"
@@ -93,7 +98,6 @@ public class HomeActivity extends AppCompatActivity implements UserController.Vi
 
             @Override
             public void onFailure(Call<MovieResponse> call, Throwable t) {
-                // Manejo de errores
             }
         });
     }
@@ -110,5 +114,12 @@ public class HomeActivity extends AppCompatActivity implements UserController.Vi
     @Override
     public void onLogoutFailure(String message) {
 
+    }
+
+    @Override
+    public void onMovieClick(int movieId) {
+        Intent intent = new Intent(this, MovieDetailActivity.class);
+        intent.putExtra("MOVIE_ID", movieId);
+        startActivity(intent);
     }
 }
