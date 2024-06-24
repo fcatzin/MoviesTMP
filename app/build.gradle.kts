@@ -45,4 +45,6 @@ dependencies {
     // TODO: Add the dependencies for Firebase products you want to use
     // When using the BoM, don't specify versions in Firebase dependencies
     implementation("com.google.firebase:firebase-analytics")
+    // Picasso es una biblioteca de carga de imágenes
+    implementation("com.squareup.picasso:picasso:2.71828")
 }

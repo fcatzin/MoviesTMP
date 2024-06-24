@@ -1,5 +1,6 @@
 package com.example.moviestmp.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -43,6 +44,9 @@ public class LoginActivity extends AppCompatActivity implements UserController.V
     @Override
     public void onLoginSuccess(FirebaseUser user) {
         Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, ProfileSelectionActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
